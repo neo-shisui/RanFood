@@ -54,20 +54,27 @@
         const canh = ["Canh chua cá diêu hồng", "Canh khổ qua dồn thịt", "Canh bí đỏ", "Canh bồ ngát", "Canh mồng tơi nấm", "Canh nấm kiêm châm, cà chua"];
         const nhaHang = ["Gogi", "Sushi Thiên Du", "Happy Thai", "Kichi Kichi", "Ốc Hội Ngộ"];
         
+		let count = 0;
         function randomFood() {
-            if (Math.random() < 0.9) {
-                const selectedRau = rau[Math.floor(Math.random() * rau.length)];
-                const selectedMonMan = monMan[Math.floor(Math.random() * monMan.length)];
-                const selectedCanh = canh[Math.floor(Math.random() * canh.length)];
-                document.getElementById("result").innerText = `Hôm nay bạn có thể ăn:
-                - ${selectedRau}
-                - ${selectedMonMan}
-                - ${selectedCanh}`;
-            } else {
-                const selectedNhaHang = nhaHang[Math.floor(Math.random() * nhaHang.length)];
-                document.getElementById("result").innerText = `Nay đi ăn ${selectedNhaHang} đi!`;
-            }
-            document.querySelector("button").innerText = "Có món khác không?";
+			if (count < 3){
+				if (Math.random() < 0.9) {
+					const selectedRau = rau[Math.floor(Math.random() * rau.length)];
+					const selectedMonMan = monMan[Math.floor(Math.random() * monMan.length)];
+					const selectedCanh = canh[Math.floor(Math.random() * canh.length)];
+					document.getElementById("result").innerText = `Hôm nay bạn có thể ăn:
+					- ${selectedRau}
+					- ${selectedMonMan}
+					- ${selectedCanh}`;
+				} else {
+					const selectedNhaHang = nhaHang[Math.floor(Math.random() * nhaHang.length)];
+					document.getElementById("result").innerText = `Nay đi ăn ${selectedNhaHang} đi!`;
+				}
+				document.querySelector("button").innerText = "Có món khác không?";
+				count++;
+			} else {
+				document.getElementById("result").innerHTML = "Ăn dép nè! 🩴";
+			}
+
         }
     </script>
 </body>
