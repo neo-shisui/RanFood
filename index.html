@@ -1,80 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-07FB7H2QX4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-07FB7H2QX4');
-</script>
-	<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hôm Nay Ăn Gì?</title>
     <style>
-    	body {
-   		padding-top: 20px;
-   		background: #F7EDE2;
-   		 position:absolute;
-   		 left:50%;
-  transform: translate(-50%);
-  margin:0;
-  overflow-x:hidden;
-   	}
-   	 br {
-        line-height: 150%;
-     }
-   	#hnag {
-   		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    	font-size: 70px;
-    	color: #F28482;
-    	 display: block;
-    	 font-weight: bold;
-    	 text-align: center;
-   	}
-
-   	button {
-   		background-color: #F6BD60;
-   		color: white;
-   		width: 100%;
-   		height: 50px;
-   		font-size: 20px;
-   	}
-   	#aboutme {
-   		display: none;
-   		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    	font-size: 20px;
-    	background-color: #F5CAC3;
-    	padding: 10px;
-    	width: 100%;
-    	height: auto;
-    	color: #84A59D;
-    	font-style: italic;
-   	}
-   </style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: url('img/Avocado.jpg'); /* Hình quả bơ */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Làm nền trong suốt nhẹ */
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-	<a id = "hnag"> 🐰 MUỐN ĂN GÌ ? </a>
-	<br>
-  <button id = "rdbyfd" onclick="location.href = 'rdbyfd.html'"> Ăn gì cũng được </button>
-	<br> 
-<img src="dance.gif" alt="Dacing bunny" id = "dance">
-	<img src="dance.gif" alt="Dacing bunny" id = "dance">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7310599997431097"
-     crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		var dpl = false;
-		function displayabt() {
-			if (dpl) {
-				document.getElementById('aboutme').style.display = "none";
-				dpl = false;
-			} else {
-				document.getElementById('aboutme').style.display = "block";
-				dpl = true;
-			}
-		}
-	</script>
+    <div class="container">
+        <h1>Hôm nay ăn gì?</h1>
+        <p id="result">Nhấn nút để chọn món ăn!</p>
+        <button onclick="randomFood()">Chọn món</button>
+    </div>
+
+    <script>
+        const rau = ["Rau lang luộc", "Dưa leo", "Rau sống"];
+        const monMan = ["Thịt heo cải chua", "Gà xào sả ớt", "Hến xào sả ớt", "Sườn kho", "Đậu khuôn chiên", "Trứng chiên", "Trứng dằm mắm"];
+        const canh = ["Canh chua cá diêu hồng", "Canh khổ qua dồn thịt", "Canh bí đỏ", "Canh bồ ngát", "Canh mồng tơi nấm", "Canh nấm kiêm châm, cà chua"];
+        const nhaHang = ["Gogi", "Sushi Thiên Du", "Happy Thai", "Kichi Kichi", "Ốc Hội Ngộ"];
+        
+        function randomFood() {
+            if (Math.random() < 0.9) {
+                const selectedRau = rau[Math.floor(Math.random() * rau.length)];
+                const selectedMonMan = monMan[Math.floor(Math.random() * monMan.length)];
+                const selectedCanh = canh[Math.floor(Math.random() * canh.length)];
+                document.getElementById("result").innerText = `Hôm nay bạn có thể ăn:
+                - ${selectedRau}
+                - ${selectedMonMan}
+                - ${selectedCanh}`;
+            } else {
+                const selectedNhaHang = nhaHang[Math.floor(Math.random() * nhaHang.length)];
+                document.getElementById("result").innerText = `Nay đi ăn ${selectedNhaHang} đi!`;
+            }
+            document.querySelector("button").innerText = "Có món khác không?";
+        }
+    </script>
 </body>
-	
 </html>
